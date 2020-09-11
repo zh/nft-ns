@@ -6,7 +6,7 @@ const util = new AppUtil()
 class RegistersCommand extends Command {
   async run() {
     const {flags} = this.parse(RegistersCommand)
-    const bchAddress = flags.bch || 'bitcoincash:qqqmlvpdvcwtvkk60a28l77nj0d9h392cvxafe4hfe'
+    const bchAddress = flags.entry || 'bitcoincash:qqqmlvpdvcwtvkk60a28l77nj0d9h392cvxafe4hfe'
     cli.action.start('Blockchain access')
     await util.getTLDNames(bchAddress, this.config.configDir)
     cli.action.stop()
@@ -16,11 +16,12 @@ class RegistersCommand extends Command {
 RegistersCommand.description = `Get list of TLD registers
 ...
 Provide BCH address for the account, holding TLD addresses.
+It will be entry for all name service resolving.
 Will generate JSON file in the config directory.
 `
 
 RegistersCommand.flags = {
-  bch: flags.string({char: 'b', description: 'BCH address of the account with registers'})
+  entry: flags.string({char: 'e', description: 'BCH address of the account with registers'})
 }
 
 module.exports = RegistersCommand

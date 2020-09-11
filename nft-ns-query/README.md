@@ -135,14 +135,15 @@ Information is retreived from the address tokens UTXO information.
 ```
 USAGE
   $ ./bin/run registers
-  $ ./bin/run registers -b bitcoincash:qrjkt...
+  $ ./bin/run registers -e bitcoincash:qrjkt...
 
 OPTIONS
-  -b, --bch=bch  BCH address of the account with registers
+  -e, --entry=entry  BCH address of the account with registers
 
 DESCRIPTION
   ...
   Provide BCH address for the account, holding TLD addresses.
+  It will be entry for all name service resolving.
   Will generate JSON file in the config directory.
 ```
 
